@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/sonner";
 import {FloatingShapes} from "@/components/floating-shapes";
 import { ConvexClientProvider } from "./ConvexClientProvider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { shadesOfPurple } from "@clerk/themes";
+
 
 const inter=Inter({subsets:["latin"]}); 
 
@@ -26,9 +28,9 @@ export default function RootLayout({ children }) {
           >
            <ClerkProvider
             // publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-            // appearance={{
-            //   baseTheme: shadesOfPurple,
-            // }}
+            appearance={{
+              baseTheme: shadesOfPurple,
+            }}
           >
 
             <ConvexClientProvider>
