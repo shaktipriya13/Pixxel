@@ -51,6 +51,7 @@ const Header = () => {
               href="#features"
               className="text-white font-medium transition-all duration-300 hover:text-cyan-400 cursor-pointer"
             >
+              {/* That href="#features" means 👉 it’s a link to a section on the same page that has an element with the id="features". */}
               Features
             </Link>
             <Link
