@@ -1,4 +1,12 @@
 "use client"
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -45,46 +53,23 @@ const Header = () => {
           </div>
         )}
 
-        {/* Auth Actions */}
-        {/* <div className="flex items-center gap-3 ml-10 md:ml-20">
-          <Authenticated>
-            <Link href="/dashboard">
-              <Button variant="glass" className="hidden sm:flex">
-                <LayoutDashboard className="h-4 w-4" />
-                <span className="hidden md:flex">Dashboard</span>
-              </Button>
-            </Link>
+        {/* Auth Actions using Clerk*/}
+        <div className="flex items-center gap-3 ml-10 md:ml-20">
+            {/* When the user is signed out show him the sign in  & sign up button */}
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton>
+                <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </SignedOut>
 
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "w-8 h-8 rounded-lg border border-white/20",
-                  userButtonPopoverCard:
-                    "shadow-xl backdrop-blur-md bg-slate-900/90 border border-white/20",
-                  userPreviewMainIdentifier: "font-semibold text-white",
-                },
-              }}
-              afterSignOutUrl="/"
-            />
-          </Authenticated>
-
-          <Unauthenticated>
-            <SignInButton>
-              <Button variant="glass" className="hidden sm:flex">
-                Sign In
-              </Button>
-            </SignInButton>
-
-            <SignUpButton>
-              <Button variant="primary">Get Started</Button>
-            </SignUpButton>
-          </Unauthenticated>
+            {/* When the user is signed in show him the user button which is the drop down */}
+             <SignedIn>
+              <UserButton />
+            </SignedIn>
         </div>
-        {isLoading && (
-          <div className="fixed bottom-0 left-0 w-full z-40 flex justify-center">
-            <BarLoader width={"95%"} color="#06b6d4" />
-          </div>
-        )} */}
       </div>
     </header>
   )
