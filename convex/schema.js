@@ -46,7 +46,7 @@ export default defineSchema({
   projects: defineTable({
     // Basic project info
     title: v.string(),
-    userId: v.id("users"), // Owner reference
+    userId: v.id("users"), // this is a foreign key which belongs to the user table
 
     // Canvas dimensions and state
     canvasState: v.any(), // Fabric.js canvas JSON (objects, layers, etc.)
@@ -55,7 +55,8 @@ export default defineSchema({
 
     // Image pipeline - tracks image transformations
     originalImageUrl: v.optional(v.string()), // Initial uploaded image
-    currentImageUrl: v.optional(v.string()), // Current processed image
+    // optional means they can be empty by default
+    currentImageUrl: v.optional(v.string()), // Current processed image ka url
     thumbnailUrl: v.optional(v.string()), // HW - Small preview for dashboard
 
     // ImageKit transformation state
@@ -66,6 +67,7 @@ export default defineSchema({
 
     // Organization
     folderId: v.optional(v.id("folders")), // HW - Optional folder organization
+    // /folderId is foregin key from folders table
 
     // Timestamps
     createdAt: v.number(),
@@ -75,7 +77,7 @@ export default defineSchema({
     .index("by_user_updated", ["userId", "updatedAt"]) // Recent projects
     .index("by_folder", ["folderId"]), // Projects in folder
 
-  // Simple folder organization
+  // Simple folder organization ,for each organnization, we will have separate folders
   folders: defineTable({
     name: v.string(), // Folder name
     userId: v.id("users"), // Owner
