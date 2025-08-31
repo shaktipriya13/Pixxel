@@ -80,6 +80,7 @@ const FeaturesSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} delay={index * 100} />
+            // 100 means 100 miliiseconds, basically values are passed in ms.
           ))}
         </div>
       </div>

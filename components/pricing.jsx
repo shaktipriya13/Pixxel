@@ -17,7 +17,7 @@ const PricingCard = ({
   const { has } = useAuth();
 
   // Check if user has this specific plan
-  const isCurrentPlan = id ? has?.({ plan: id }) : false;
+  const isCurrentPlan = id ? has?.({ plan: id }) : false;//if its free it will return true else it will return false
 
   const handlePopup = async () => {
     if (isCurrentPlan) return; // Don't open checkout for current plan
@@ -90,7 +90,7 @@ const PricingCard = ({
 const PricingSection = () => {
   const plans = [
     {
-      id: "free_user",
+      id: "free",
       plan: "Free",
       price: 0,
       features: [
@@ -105,7 +105,7 @@ const PricingSection = () => {
     {
       id: "pro",
       plan: "Pro",
-      price: 12,
+      price: 10,
       features: [
         "Unlimited projects",
         "Unlimited exports",
@@ -115,7 +115,7 @@ const PricingSection = () => {
         "AI Retouch, Upscaler and more",
       ],
       featured: true,
-      planId: "cplan_2ywZwXjYQQipWYxjCmFZCgCgsTZ",
+      planId: "cplan_322sdPrUe8ule0jopy5MwNfG0C5",
       buttonText: "Upgrade to Pro",
     },
   ];
@@ -147,3 +147,5 @@ const PricingSection = () => {
 };
 
 export default PricingSection;
+
+
