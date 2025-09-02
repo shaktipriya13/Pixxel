@@ -46,7 +46,7 @@ export function NewProjectModal({ isOpen, onClose }) {
       setPreviewUrl(URL.createObjectURL(file));
 
       // Auto-generate title from filename
-      const nameWithoutExt = file.name.replace(/\.[^/.]+$/, "");
+      const nameWithoutExt = file.name.replace(/\.[^/.]+$/, ""); //this regex will help to remove file extensions like .png,.jpeg, etc.
       setProjectTitle(nameWithoutExt || "Untitled Project");
     }
   }, []);
@@ -61,10 +61,12 @@ export function NewProjectModal({ isOpen, onClose }) {
   });
 
   // Handle create project with plan limit check
+  // * when we click on create Project button this handleCreateProject fxn will be triggered.x
   const handleCreateProject = async () => {
     // Check project limits first
     if (!canCreate) {
-      setShowUpgradeModal(true);
+      //check if project limit is reached
+      setShowUpgradeModal(true); //it will show a modal that tells the user to upgrade the plan
       return;
     }
 
@@ -76,12 +78,13 @@ export function NewProjectModal({ isOpen, onClose }) {
     setIsUploading(true);
 
     try {
-      // Upload to ImageKit via our API route
+      // Upload to ImageKit via our API route and then upload the url of imageKit to the convex db
       const formData = new FormData();
       formData.append("file", selectedFile);
       formData.append("fileName", selectedFile.name);
 
       const uploadResponse = await fetch("/api/imagekit/upload", {
+        //this fetches images from the upload folder of imagekit
         method: "POST",
         body: formData,
       });
@@ -210,6 +213,7 @@ export function NewProjectModal({ isOpen, onClose }) {
                     className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white"
                   >
                     <X className="h-4 w-4" />
+                    {/* X = SVG close icon component from lucide-react. */}
                   </Button>
                 </div>
 
