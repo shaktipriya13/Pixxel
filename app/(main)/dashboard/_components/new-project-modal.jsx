@@ -141,7 +141,7 @@ export function NewProjectModal({ isOpen, onClose }) {
                     variant="secondary"
                     className="bg-slate-700 text-white/70"
                   >
-                    {currentProjectCount}/3 projects
+                    {currentProjectCount}/5 projects
                   </Badge>
                 )}
               </div>
@@ -150,7 +150,7 @@ export function NewProjectModal({ isOpen, onClose }) {
 
           <div className="space-y-6">
             {/* Project Limit Warning for Free Users */}
-            {isFree && currentProjectCount >= 2 && (
+            {isFree && currentProjectCount >= 4 && (
               <Alert className="bg-amber-500/10 border-amber-500/20">
                 <Crown className="h-5 w-5 text-amber-400" />
                 <AlertDescription className="text-amber-300/80">
@@ -160,8 +160,8 @@ export function NewProjectModal({ isOpen, onClose }) {
                       : "Project Limit Reached"}
                   </div>
                   {currentProjectCount === 2
-                    ? "This will be your last free project. Upgrade to Pixxel Pro for unlimited projects."
-                    : "Free plan is limited to 3 projects. Upgrade to Pixxel Pro to create more projects."}
+                    ? "This will be your last free project. Upgrade to Editra Pro for unlimited projects."
+                    : "Free plan is limited to . Upgrade to Editra Pro to create more projects."}
                 </AlertDescription>
               </Alert>
             )}
@@ -279,8 +279,44 @@ export function NewProjectModal({ isOpen, onClose }) {
         isOpen={showUpgradeModal}
         onClose={() => setShowUpgradeModal(false)}
         restrictedTool="projects"
-        reason="Free plan is limited to 3 projects. Upgrade to Pro for unlimited projects and access to all AI editing tools."
+        reason="Free plan is limited to . Upgrade to Pro for unlimited projects and access to all AI editing tools."
       />
     </>
   );
 }
+
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogDescription,
+//   DialogFooter,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogTrigger,
+// } from "@/components/ui/dialog";
+// import React from "react";
+
+// const NewProjectModal = ({ isOpen, onClose }) => {
+//   const handleClose = () => {
+//     onclose();
+//   };
+//   return (
+//     <>
+//       <Dialog isOpen={isOpen} onOpenChange={handleClose}>
+//         <DialogTrigger>Open</DialogTrigger>
+//         <DialogContent>
+//           <DialogHeader>
+//             <DialogTitle>Are you absolutely sure?</DialogTitle>
+//             <DialogDescription>
+//               This action cannot be undone. This will permanently delete your
+//               account and remove your data from our servers.
+//             </DialogDescription>
+//           </DialogHeader>
+//           <DialogFooter>Footer</DialogFooter>
+//         </DialogContent>
+//       </Dialog>
+//     </>
+//   );
+// };
+
+// export { NewProjectModal };

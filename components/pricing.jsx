@@ -17,7 +17,7 @@ const PricingCard = ({
   const { has } = useAuth();
 
   // Check if user has this specific plan
-  const isCurrentPlan = id ? has?.({ plan: id }) : false;//if its free it will return true else it will return false
+  const isCurrentPlan = id ? has?.({ plan: id }) : false; //if its free it will return true else it will return false
 
   const handlePopup = async () => {
     if (isCurrentPlan) return; // Don't open checkout for current plan
@@ -94,7 +94,7 @@ const PricingSection = () => {
       plan: "Free",
       price: 0,
       features: [
-        "3 projects maximum",
+        "5 projects maximum",
         "20 exports per month",
         "Basic crop & resize",
         "Color adjustments",
@@ -147,5 +147,3 @@ const PricingSection = () => {
 };
 
 export default PricingSection;
-
-

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Plus, Image, Sparkles } from "lucide-react";
+import { Plus, Image,  WandSparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useConvexQuery } from "@/hooks/use-convex-query";
 import { api } from "@/convex/_generated/api";
@@ -53,7 +53,7 @@ export default function DashboardPage() {
         )}
 
         {/* New Project Modal */}
-        <NewProjectModal
+        <NewProjectModal //this function comes from new-project-modal component and it takes in an isOpen prop
           isOpen={showNewProjectModal}
           onClose={() => setShowNewProjectModal(false)}
         />
@@ -85,7 +85,8 @@ function EmptyState({ onCreateProject }) {
         size="xl"
         className="gap-2"
       >
-        <Sparkles className="h-5 w-5" />
+        {/* <Sparkles className="h-5 w-5" /> */}
+        <WandSparkles size={244} />
         Start Creating
       </Button>
     </div>

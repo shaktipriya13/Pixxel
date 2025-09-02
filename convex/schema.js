@@ -12,7 +12,6 @@
 
 // convex/schema.js
 
-
 // index in our database helps us to query things faster
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
@@ -87,6 +86,6 @@ export default defineSchema({
 
 /* 
 PLAN LIMITS EXAMPLE:
-- Free: 3 projects, 20 exports/month, basic features only
+- Free: 5 projects, 20 exports/month, basic features only
 - Pro: Unlimited projects/exports, all AI features
 */
