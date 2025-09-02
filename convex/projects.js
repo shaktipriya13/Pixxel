@@ -17,7 +17,7 @@ export const getUserProjects = query({
     // Get user's projects, ordered by most recently updated
     const projects = await ctx.db
       .query("projects")
-      .withIndex("by_user_updated", (q) => q.eq("userId", user._id))//whichever project has been updated first comes at top as order is desc by index: by_user_updated
+      .withIndex("by_user_updated", (q) => q.eq("userId", user._id)) //whichever project has been updated first comes at top as order is desc by index: by_user_updated
       .order("desc")
       .collect();
 
@@ -98,7 +98,7 @@ export const deleteProject = mutation({
 
     // Update user's project count
     await ctx.db.patch(user._id, {
-      projectsUsed: Math.max(0, user.projectsUsed - 1),//taking maxm to display no. of projects left
+      projectsUsed: Math.max(0, user.projectsUsed - 1), //taking maxm to display no. of projects left
       lastActiveAt: Date.now(),
     });
 
@@ -112,12 +112,14 @@ export const getProject = query({
   handler: async (ctx, args) => {
     const user = await ctx.runQuery(internal.users.getCurrentUser);
 
+    // if user is logged in then we need to fetch our projects
     const project = await ctx.db.get(args.projectId);
     if (!project) {
       throw new Error("Project not found");
     }
 
     if (!user || project.userId !== user._id) {
+      //to make sure that this particular project belongs to the current user
       throw new Error("Access denied");
     }
 
@@ -125,7 +127,7 @@ export const getProject = query({
   },
 });
 
-// Update project canvas state and metadata
+// ! Update project canvas state and metadata -> this api is responsible for autosaving our canvas state
 export const updateProject = mutation({
   args: {
     projectId: v.id("projects"),
