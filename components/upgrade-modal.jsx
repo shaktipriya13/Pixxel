@@ -13,6 +13,7 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { PricingTable } from "@clerk/nextjs";
 
+// there is a free tool that the regualr user cannot access , and if they try to access it ,we will show them the upgrade modal
 export function UpgradeModal({ isOpen, onClose, restrictedTool, reason }) {
   const getToolName = (toolId) => {
     const toolNames = {

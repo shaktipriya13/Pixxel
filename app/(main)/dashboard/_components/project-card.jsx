@@ -13,12 +13,17 @@ export default function ProjectCard({ project, onEdit }) {
   );
 
   const lastUpdated = formatDistanceToNow(new Date(project.updatedAt), {
-    addSuffix: true,
+    addSuffix: true, //last updated shows when we last came to this paritcular project
+    // It’s using the date-fns library, specifically the formatDistanceToNow function.
   });
 
   const handleDelete = async () => {
     const confirmed = confirm(
-      `Are you sure you want to delete "${project.title}"? This action cannot be undone.`
+      `
+⚠️ Warning!  
+Deleting ${project.title} Project is permanent.  
+Think twice before proceeding! 🚨
+ `
     );
 
     if (confirmed) {
@@ -55,7 +60,7 @@ export default function ProjectCard({ project, onEdit }) {
             size="sm"
             onClick={handleDelete}
             className="gap-2 text-red-400 hover:text-red-300"
-            disabled={isLoading}
+            disabled={isLoading} //the delete button will be disabled when the delete is going on
           >
             <Trash2 className="h-4 w-4" />
             Delete
@@ -70,7 +75,7 @@ export default function ProjectCard({ project, onEdit }) {
         </h3>
 
         <div className="flex items-center justify-between text-sm text-white/70">
-          <span>Updated {lastUpdated}</span>
+          <span className="text-[0.65rem]">Updated {lastUpdated}</span>
           <Badge
             variant="secondary"
             className="text-xs bg-slate-700 text-white/70"

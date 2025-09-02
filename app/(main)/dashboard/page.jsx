@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Plus, Image,  WandSparkles } from "lucide-react";
+import { Plus, Image, WandSparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useConvexQuery } from "@/hooks/use-convex-query";
 import { api } from "@/convex/_generated/api";
@@ -9,10 +9,11 @@ import { NewProjectModal } from "./_components/new-project-modal.jsx";
 import { ProjectGrid } from "./_components/project-grid.jsx";
 
 export default function DashboardPage() {
-  const [showNewProjectModal, setShowNewProjectModal] = useState(false);//this is a state which willl mandage whether the modal is opened or not
+  const [showNewProjectModal, setShowNewProjectModal] = useState(false); //this is a state which willl mandage whether the modal is opened or not
 
   // Get user's projects
-  const { data: projects, isLoading } = useConvexQuery(//Renames the data property to projects (aliasing for clarity).
+  const { data: projects, isLoading } = useConvexQuery(
+    //Renames the data property to projects (aliasing for clarity).
     api.projects.getUserProjects
   );
 
@@ -47,7 +48,7 @@ export default function DashboardPage() {
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
           </div>
         ) : projects && projects.length > 0 ? (
-          <ProjectGrid projects={projects} />
+          <ProjectGrid projects={projects} /> //inside the projectGrid we can render all our projects
         ) : (
           <EmptyState onCreateProject={() => setShowNewProjectModal(true)} />
         )}

@@ -8,7 +8,7 @@ export function ProjectGrid({ projects }) {
   const router = useRouter();
 
   const handleEditProject = (projectId) => {
-    router.push(`/editor/${projectId}`);
+    router.push(`/editor/${projectId}`); //routes the user to the specific editor page
   };
 
   return (
