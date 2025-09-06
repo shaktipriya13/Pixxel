@@ -1,3 +1,6 @@
+// ctx = context object
+// It gives you access to everything you need inside Convex functions.
+
 // Here we have created all the apis for projects
 // This file contains a set of API endpoints for managing projects in a Convex backend application. Convex is a serverless backend platform that simplifies database operations, authentication, and real-time data management. The file defines queries (for fetching data) and mutations (for modifying data) to handle CRUD operations (Create, Read, Update, Delete) for projects associated with a user. The code integrates user authentication, enforces plan-based limits (e.g., free vs. pro plans), and manages project metadata such as images, canvas state, and dimensions.
 
