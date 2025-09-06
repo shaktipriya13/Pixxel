@@ -1,3 +1,5 @@
+// “Cursor style depends on which tool is active. Changing tool updates Fabric’s cursor properties immediately.”
+
 import { useCanvas } from "@/context/context";
 import { api } from "@/convex/_generated/api";
 import { useConvexMutation } from "@/hooks/use-convex-query";
@@ -160,7 +162,7 @@ function CanvasEditor({ project }) {
       clearTimeout(saveTimeout);
       saveTimeout = setTimeout(() => {
         saveCanvasState();
-      }, 2000);//waiting for 2 seconds before saving it
+      }, 2000); //waiting for 2 seconds before saving it
     };
 
     // below fxns will help us to autosave it
@@ -186,9 +188,10 @@ function CanvasEditor({ project }) {
         break;
       default:
         canvasEditor.defaultCursor = "default";
-        canvasEditor.hoverCursor = "move";
+        canvasEditor.hoverCursor = "move"; //(grabby hand for moving objects)
     }
   }, [canvasEditor, activeTool]);
+  // So when a user switches tools (probably via toolbar buttons), your React state updates → triggers useEffect → updates Fabric canvas cursor.
 
   useEffect(() => {
     // if the project changes then this useEffect will re-run

@@ -75,7 +75,7 @@ const TOOLS = [
     id: "ai_edit",
     label: "AI Editing",
     icon: Eye,
-    proOnly: true,//AI tools are only for pro users. if regular user tries to access them,we show them up upgrade Modal plan.
+    proOnly: true, //AI tools are only for pro users. if regular user tries to access them,we show them up upgrade Modal plan.
   },
 ];
 
@@ -245,6 +245,7 @@ export function EditorTopBar({ project }) {
 
   const handleBackToDashboard = () => {
     router.push("/dashboard");
+    // It will take us back to dashboard page
   };
 
   // Handle tool change with access control

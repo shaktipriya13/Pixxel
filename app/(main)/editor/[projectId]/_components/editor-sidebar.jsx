@@ -10,14 +10,14 @@ import {
   Text,
   Eye,
 } from "lucide-react";
-import { AdjustControls } from "./_tools/adjust";
-import { BackgroundControls } from "./_tools/background-controls";
+import { AdjustControls } from "./_tools/adjust.jsx";
+import { BackgroundControls } from "./_tools/background-controls.jsx";
 import { useCanvas } from "@/context/context";
-import { TextControls } from "./_tools/text";
-import { AIExtenderControls } from "./_tools/ai-extend";
-import { ResizeControls } from "./_tools/resize";
-import { AIEdit } from "./_tools/ai-edit";
-import { CropContent } from "./_tools/crop";
+import { TextControls } from "./_tools/text.jsx";
+import { AIExtenderControls } from "./_tools/ai-extend.jsx";
+import { ResizeControls } from "./_tools/resize.jsx";
+import { AIEdit } from "./_tools/ai-edit.jsx";
+import { CropContent } from "./_tools/crop.jsx";
 
 const TOOL_CONFIGS = {
   resize: {
