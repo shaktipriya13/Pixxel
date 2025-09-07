@@ -1,5 +1,14 @@
 "use client";
 
+// 🔹 What getActiveObject() Does ----> comes from Fabric.js
+// In Fabric.js, the canvas can have many objects (images, shapes, text, etc.).
+// The “active object” is the one currently selected by the user (clicked or focused).
+// getActiveObject() returns that selected object, or null if nothing is selected.
+
+// That means:
+// ✅ They work while the app is running.
+// ❌ But if you refresh the page → everything resets back to the original, because nothing is saved to a database or backend.
+
 import React, { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
@@ -245,7 +254,7 @@ export function AdjustControls() {
         </p>
       </div>
 
-      {/* Processing Indicator */}
+      {/* Processing Indicator: In case there is some processing going on. */}
       {isApplying && (
         <div className="flex items-center justify-center py-2">
           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-cyan-400"></div>
