@@ -136,9 +136,6 @@ Filters: Implements advanced canvas filters like vibrance to enhance image quali
 
 <img width="1234" height="867" alt="image" src="https://github.com/user-attachments/assets/70370823-585f-41df-b206-877c9b6c4296" />
 
-### 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 
 ### 🙌 Acknowledgments
 
@@ -150,3 +147,4 @@ Fabric.js for advanced canvas functionality.
 
 
 Pixxel is a showcase of modern full-stack development, blending AI, real-time data, and user-focused design to create a scalable and performant image editing platform. 
+
